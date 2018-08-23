@@ -42,7 +42,7 @@ void Queue::dequeue()
 {
 	if (this->head == nullptr)
 		throw new std::exception("Can't dequeue, because queue is empty!");
-    Node *temp = this->head;
+    Node* temp = this->head;
     this->head = this->head->next;
 
     if (this->head == nullptr)
@@ -63,8 +63,8 @@ int Queue::size() {
 }
 
 Queue::~Queue() {
-	Node *temp = this->head->next;
-	Node *curr = temp;
+	Node* temp = this->head->next;
+	Node* curr = temp;
 	while (temp != nullptr) {
 		temp = curr->next;
 		delete(temp);

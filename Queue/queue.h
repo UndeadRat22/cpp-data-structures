@@ -5,13 +5,14 @@ namespace deadrat22 {
 	{
 	public:
 		int data;
-		struct Node *next;
+		struct Node* next;
 	};
 
 	class Queue
 	{
 	public:
-		Node *head, *tail;
+		Node* head;
+		Node* tail;
 
 		Queue();
 		~Queue();

@@ -7,7 +7,8 @@ int main()
 	for (int i = 0; i < 100; i++) {
 		q->enqueue(i);
 	}
-	for (int i = 0; i < q->size(); i++) {
+	std::cout << q->size() << std::endl;
+	while(q->size() > 0){
 		std::cout << q->first_data() << " ";
 		q->dequeue();
 	}
