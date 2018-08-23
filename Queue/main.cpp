@@ -1,14 +1,15 @@
 #include <iostream>
-#include "queue.h"
+#include "queue.hpp"
+
+using namespace deadrat22;
 
 int main()
 {
-	deadrat22::Queue* q = new deadrat22::Queue();
+	Queue<int>* q = new Queue<int>();
 	for (int i = 0; i < 100; i++) {
 		q->enqueue(i);
 	}
-	std::cout << q->size() << std::endl;
-	while(q->size() > 0){
+	while (!q->empty()) {
 		std::cout << q->first_data() << " ";
 		q->dequeue();
 	}
