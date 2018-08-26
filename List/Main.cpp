@@ -13,6 +13,8 @@ int main() {
 
 	List<int>* cpy = l->clone();
 
+	std::cout << (*cpy)[5] << (*cpy)[1]<< std::endl;
+
 	for (int i = 0; i < 10; i++) {
 		std::cout << i << " " << cpy->pop_head() << std::endl;
 	}

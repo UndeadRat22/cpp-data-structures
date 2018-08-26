@@ -4,7 +4,7 @@
 namespace deadrat22 {
 	template <class T>
 	struct Node {
-		Node<T>(T _value, Node* _next) 
+		Node<T>(const T & _value, Node* _next) 
 		: value(_value), next(_next){}
 		T value;
 		Node* next;
@@ -76,6 +76,23 @@ namespace deadrat22 {
 			this->head = new_head;
 			count--;
 			return out;
+		}
+
+		T value_at(const int & index) {
+			if (index >= count)
+				throw new std::out_of_range("deadrat22::List<>::value_at(const int &) index out of list bounds!");
+			Node<T>* ptr = this->head;
+			for (int i = 0; i < index; i++, ptr = ptr->next);
+			return ptr->value;
+		}
+		
+		T operator[](const int & index) {
+			try {
+				return value_at(index);
+			}
+			catch (const std::out_of_range & ex) {
+				throw ex;
+			}
 		}
 	};
 }
