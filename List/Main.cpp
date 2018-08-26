@@ -5,14 +5,20 @@
 using namespace deadrat22;
 
 int main() {
-	List* l = new List();
+	List<int>* l = new List<int>();
 	for (int i = 0; i < 10; i++) {
 		std::cout << "pushing " << i << std::endl;
 		l->push_head(i);
 	}
+
+	List<int>* cpy = l->clone();
+
 	for (int i = 0; i < 10; i++) {
-		std::cout << i << " " << l->pop_head() << std::endl;
+		std::cout << i << " " << cpy->pop_head() << std::endl;
 	}
+
+	delete cpy;
+	delete l;
 	int x;
 	std::cin >> x;
 }
