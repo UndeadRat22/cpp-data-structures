@@ -42,6 +42,29 @@ namespace deadrat22 {
 			hashmap->push_back(new Pair<T1, T2>(key, val));
 		}
 
+		void change_value(T1 key, T2 new_val) {
+			for (int i = 0; i < hashmap->size(); i++) {
+				Pair<T1, T2>* pair = (*hashmap)[i];
+				if (pair->key == key) {
+					pair->value = new_val;
+					return;
+				}
+			}
+			add_pair(key, new_val);
+		}
+
+		void remove_pair(T1 key) {
+			for (int i = 0; i < hashmap->size(); i++) {
+				Pair<T1, T2>* pair = (*hashmap)[i];
+				if (pair->key == key) {
+					hashmap->erase(pair);
+					for (int j = i; j < hashmap->size - 1; j++) {
+						(*hashmap)[j] = (*hashmap)[j + 1];
+					}
+				}
+			}
+		}
+
 		T2 value_for(T1 key) const {
 			for (int i = 0; i < hashmap->size(); i++) {
 				Pair<T1, T2>* pair = (*hashmap)[i];
